@@ -1,21 +1,26 @@
-# Original research materials and verification status
+# Research materials
 
-| Stage | Artifact | Status |
-| --- | --- | --- |
-| Submission 3 | Initial project presentation | Identified in original course archive; not imported |
-| Submission 4 | First paper draft | Identified in original course archive; not imported |
-| Submission 5 | Revised paper draft | Identified in original course archive; not imported |
-| Submission 6 | [Final Paper.pdf](../research/Final%20Paper.pdf) | **Imported unchanged and read** |
-| Submission 6 | Final presentation | Identified in original course archive; not imported |
+## Final research paper
 
-## Verified final paper
+[**Unlocking the Potential of NLP: CNN based Approaches for Contextual Hate Speech Detection (PDF)**](../research/Final%20Paper.pdf)
 
-The five-page final PDF is titled *Unlocking the Potential of NLP: CNN based Approaches for Contextual Hate Speech Detection*. It lists seven authors. Its sections cover introduction, literature review, proposed methodology, experiment, experimental setup, results, discussion, conclusion and references.
+The five-page final research paper includes:
 
-The PDF reports a three-class CNN classifier on 24,783 English tweets. It reports 91% accuracy but also says more than 80% of hate-class examples were misclassified. See the [README](../README.md) for a careful, qualified summary.
+- Research motivation and related literature
+- CrowdFlower tweet dataset and class distribution
+- Preprocessing and CNN methodology
+- Experimental setup and hyperparameters
+- Accuracy/loss figures and a confusion matrix
+- Findings, limitations, future work, and references
 
-## Materials still missing
+The paper is preserved in its original submitted form.
 
-No original runnable code, model checkpoints or local dataset files have been verified in the inspected source repository. The earlier drafts and presentation binaries remain to be reviewed.
+## Project milestones
 
-The PDF's original contents are preserved; any future research extension must be distinguished from the original submitted work.
+The research progressed from an initial NLP project presentation to a contextual hate speech detection paper, a CNN-focused revision, and the final paper and presentation.
+
+For the chronology, see [research development history](research-history.md).
+
+## Research findings
+
+The final paper reports **91% overall accuracy**, **0.90 recall**, and **0.90 F1-score**. It also identifies poor detection of the minority hate-speech class, underscoring the importance of class imbalance, error analysis, and careful evaluation.
