@@ -1,59 +1,90 @@
 # Contextual Hate Speech Detection Using CNNs
 
-**Original paper:** *Unlocking the Potential of NLP: CNN based Approaches for Contextual Hate Speech Detection*
+**Research paper:** *Unlocking the Potential of NLP: CNN based Approaches for Contextual Hate Speech Detection*
 
-Academic collaborative research examining convolutional neural networks (CNNs) for classifying English-language tweets as **hate speech**, **offensive language**, or **neither**.
+An academic research project exploring **natural language processing (NLP)** and **convolutional neural networks (CNNs)** for three-class hate speech detection in social media text.
 
-> **Research status:** This repository preserves the original final group paper and documents its **reported** experimental setup and findings. The original training code, dataset copy, trained weights, and a reproducible environment have not been recovered or verified. Reported results have not been independently reproduced.
+## Research at a glance
 
-## Research overview
+| Focus | Details |
+| --- | --- |
+| Task | Classify English tweets as hate speech, offensive language, or neither |
+| Dataset | CrowdFlower Hate Speech Identification dataset — 24,783 tweets |
+| Approach | CNN-based sentence classification inspired by Kim (2014) |
+| Techniques | Text preprocessing, Word2Vec embeddings, multi-filter convolutions, max pooling |
+| Reported overall accuracy | **91%** |
+| Key research challenge | Class imbalance and reliable detection of minority-class hate speech |
 
-The study applies natural language processing and a CNN-based sentence classification approach to the **CrowdFlower Hate Speech Identification** dataset of **24,783 English tweets**.
+[**Read the research paper (PDF)**](research/Final%20Paper.pdf)
 
-| Label | Samples | Share |
+## Research objective
+
+Hate speech detection is challenging because language depends on context and because offensive language does not always constitute hate speech. This study investigates how CNN-based text classification can distinguish three categories of tweets and evaluates the strengths and limitations of the approach.
+
+## Dataset
+
+The study uses **24,783 English tweets** from the CrowdFlower Hate Speech Identification dataset.
+
+| Class | Number of tweets | Percentage |
 | --- | ---: | ---: |
-| Hate | 1,430 | 5.8% |
-| Offensive | 19,190 | 77.4% |
+| Hate speech | 1,430 | 5.8% |
+| Offensive language | 19,190 | 77.4% |
 | Neither | 4,163 | 16.8% |
 | **Total** | **24,783** | **100%** |
 
-The class distribution is highly imbalanced. This is critical to interpreting the model's results.
+The pronounced class imbalance is an important factor in interpreting classification performance.
 
-## Methodology reported in the paper
+## Methodology
 
-- **Text processing:** character cleaning, lowercasing, stemming and tokenization using Python/Keras tooling.
-- **Split:** training **50%**, validation **30%**, test **20%**; the paper does not report cross-validation.
-- **Embeddings:** pretrained **300-dimensional Word2Vec** vectors; the paper describes an input tensor shape of `(None, 100, 300)`.
-- **CNN:** sentence-classification design inspired by **Kim (2014)**, with convolution filter sizes **3, 4 and 5**, **100 filters per size**, max pooling and softmax classification.
-- **Training:** Adam optimizer, batch size **64**, **10 epochs**. The paper discusses a later learning-rate adjustment to **1e-4**.
+### 1. Text preprocessing
 
-These settings are transcribed from the original report, **not** from independently inspected source code. The paper does not provide a complete reproducible implementation specification.
+The research describes text cleaning, lowercasing, stemming, and tokenization using Python and Keras tooling.
 
-## Reported findings and limitations
+### 2. Word representations
 
-| Reported aggregate measure | Value |
+Tweets are represented with **300-dimensional pretrained Word2Vec embeddings**. The paper describes an embedding input tensor with shape `(None, 100, 300)`.
+
+### 3. CNN architecture
+
+The model follows a sentence-classification approach inspired by **Kim (2014)**, using:
+
+- Convolutional filters of sizes **3, 4, and 5**, with **100 filters per size**
+- Max-pooling operations to capture salient features
+- A softmax output layer for three-class prediction
+
+### 4. Experimental configuration
+
+| Parameter | Configuration described in the paper |
+| --- | --- |
+| Training / validation / test | 50% / 30% / 20% |
+| Optimizer | Adam |
+| Batch size | 64 |
+| Epochs | 10 |
+| Learning-rate adjustment discussed | `1e-4` |
+| Evaluation | Accuracy, recall, F1-score, confusion matrix, loss/accuracy curves |
+
+## Results and discussion
+
+The final paper reports the following aggregate results:
+
+| Metric | Reported result |
 | --- | ---: |
 | Accuracy | **91%** |
 | Recall | **0.90** |
 | F1-score | **0.90** |
-| Loss | **36%** (as described in the paper) |
+| Loss | **36%** |
 
-**Critical limitation:** Despite the reported 91% aggregate accuracy, the paper states that **more than 80% of tweets in the hate class were classified incorrectly**. The class imbalance and bias toward predicting offensive language substantially limit the model's usefulness for detecting the minority hate-speech class. Aggregate metrics must **not** be presented as evidence of strong hate-class detection.
+The research also highlights a significant challenge: **more than 80% of hate-class tweets were classified incorrectly**, despite the strong overall accuracy. This illustrates how class imbalance can obscure weak performance on a minority class and why class-specific evaluation is essential for responsible content moderation.
 
-The paper contains training/validation loss and accuracy plots and a confusion matrix (pages 3–4). The precise evaluation population for each aggregate metric is not fully specified; values are therefore presented as **paper-reported**, not verified test-set scores.
+The paper includes accuracy/loss plots and a confusion matrix and discusses overfitting, dataset size, and ethical concerns around automated moderation.
 
-Further limitations include a relatively small minority class, possible overfitting, absence of cross-validation and unavailable original runnable code. The paper also discusses ethical considerations such as classification bias and freedom of expression.
+## Research significance
 
-## Original paper and documentation
+This project examines both the potential and the practical challenges of CNN-based NLP for content classification. Its findings motivate further investigation into class imbalance, model tuning, error analysis, and fair evaluation of hate speech detection systems.
 
-- [Read the unchanged final submitted paper (PDF)](research/Final%20Paper.pdf)
-- [Research development history](docs/research-history.md)
-- [Authorship and contributions](docs/contributions.md)
-- [Original material inventory](docs/original-materials.md)
+## Authors
 
-## Paper authorship
-
-The final PDF lists the following **seven authors**, in this order:
+The final paper credits:
 
 1. Nabila Islam Borno
 2. Ashfiqun Ahmed Miftah
@@ -63,14 +94,15 @@ The final PDF lists the following **seven authors**, in this order:
 6. Mehnaz Ara Fazal
 7. Annajiat Alim Rasel
 
-The archived course submission READMEs identify the first four as **Group 4 members**. This distinction does not establish the individual responsibilities of any author; see [contributions](docs/contributions.md).
+See [authorship and contributions](docs/contributions.md) for the distinction between paper authors and the course project group.
 
-## Provenance
+## Research materials
 
-The original CSE438 coursework archive documents a progression from an initial gender-based hate comment detection proposal (submission 3), through a broader NLP paper draft (submission 4), to a CNN-focused draft and final submission (submissions 5–6).
+- [Final research paper](research/Final%20Paper.pdf)
+- [Research development history](docs/research-history.md)
+- [Authorship and contributions](docs/contributions.md)
+- [Research materials](docs/original-materials.md)
 
-This repository was organized later to preserve and explain that academic work. **No original software implementation is claimed to be present.** Any future reproduction or extension will be labeled separately and will not be described as the original submitted code.
+## Future directions
 
-## Reuse
-
-No software or research-material license is asserted here. The PDF retains its original authorship and contents. Check permissions and third-party rights before reusing the paper, dataset, figures or any future recovered materials.
+The paper identifies error analysis, stronger minority-class detection, improved data balance, and further CNN optimization as areas for future work.
