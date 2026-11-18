@@ -1,30 +1,38 @@
-# Authorship and contribution record
+# Authorship, group membership and contributions
 
-## Confirmed group membership
+## Authorship of the final paper
 
-The original CSE438 group submission README files list these four members:
+The unchanged final submitted PDF lists **seven authors** in the following order:
+
+1. Nabila Islam Borno
+2. Ashfiqun Ahmed Miftah
+3. Atikur Rahman
+4. Gazi Asif Imtiaz
+5. Md Sabbir Hossain
+6. Mehnaz Ara Fazal
+7. Annajiat Alim Rasel
+
+**Primary source:** [Final Paper.pdf, page 1](../research/Final%20Paper.pdf).
+
+## Course group membership
+
+The original CSE438 submission README records for submissions 3–6 list **Group 4** with these four members:
 
 - Nabila Islam Borno
 - Ashfiqun Ahmed Miftah
 - Atikur Rahman
 - Gazi Asif Imtiaz
 
-The records identify this as **Group 4**. Some source README files show inconsistent student-ID digits for one member; student IDs are intentionally omitted here pending verification.
+The four-person course-group list and the seven-person paper byline are **different records**. This repository preserves both without guessing why they differ or omitting the additional paper authors.
 
-## Individual contributions: verification pending
+## Individual contributions: not yet confirmed
 
-The source README files establish group membership, **not** who individually implemented models, prepared datasets, ran experiments, drafted sections or created slides. No individual responsibilities are assigned here without supporting evidence or confirmation from the contributors.
+Neither the source README records nor the paper byline alone establishes who individually performed dataset preparation, coding, training, evaluation, writing or presentation work.
 
-Before adding a contribution breakdown, verify:
-- Each member's research and writing responsibilities
-- Who implemented or executed any code and experiments
-- Dataset sourcing, annotation and preprocessing responsibilities, if applicable
-- Presentation and documentation responsibilities
+A contribution statement should be added only after confirmation and, where possible, supporting original artifacts. This repository's maintainer is **not** represented as the sole author or sole implementer.
 
-## Reuse and provenance
+## Provenance and reuse
 
-The historical paper drafts, final paper and slides are collaborative academic materials. They should retain original authorship and should not be represented as solely authored by the maintainer of this repository.
+The final PDF is preserved unchanged as a collaborative submission. This repository's README and documentation are later organizational work, **not** original course-submitted research text or code.
 
-The present README and documentation files are a **new organizational layer** created in 2026. They are not original course submissions.
-
-No license has been assigned to the underlying collaborative research materials. Permission and any third-party content restrictions should be reviewed before publishing copies.
+No license for the original collaborative materials has been granted by this documentation.
