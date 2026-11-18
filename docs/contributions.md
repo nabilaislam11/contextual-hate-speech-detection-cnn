@@ -1,8 +1,8 @@
-# Authorship, group membership and contributions
+# Authorship and collaboration
 
-## Authorship of the final paper
+## Research paper authors
 
-The unchanged final submitted PDF lists **seven authors** in the following order:
+The [final research paper](../research/Final%20Paper.pdf) lists the following authors in order:
 
 1. Nabila Islam Borno
 2. Ashfiqun Ahmed Miftah
@@ -12,27 +12,19 @@ The unchanged final submitted PDF lists **seven authors** in the following order
 6. Mehnaz Ara Fazal
 7. Annajiat Alim Rasel
 
-**Primary source:** [Final Paper.pdf, page 1](../research/Final%20Paper.pdf).
+## CSE438 project group
 
-## Course group membership
-
-The original CSE438 submission README records for submissions 3–6 list **Group 4** with these four members:
+The original CSE438 group-submission records identify **Group 4** as:
 
 - Nabila Islam Borno
 - Ashfiqun Ahmed Miftah
 - Atikur Rahman
 - Gazi Asif Imtiaz
 
-The four-person course-group list and the seven-person paper byline are **different records**. This repository preserves both without guessing why they differ or omitting the additional paper authors.
+The final paper includes three additional authors beyond the four students named in the course-group submission records. Both records are preserved here to credit collaborators accurately.
 
-## Individual contributions: not yet confirmed
+## Collaborative research
 
-Neither the source README records nor the paper byline alone establishes who individually performed dataset preparation, coding, training, evaluation, writing or presentation work.
+The project covers research into CNN-based NLP for contextual hate speech detection, including data preprocessing, experimental methodology, model evaluation, and discussion of results.
 
-A contribution statement should be added only after confirmation and, where possible, supporting original artifacts. This repository's maintainer is **not** represented as the sole author or sole implementer.
-
-## Provenance and reuse
-
-The final PDF is preserved unchanged as a collaborative submission. This repository's README and documentation are later organizational work, **not** original course-submitted research text or code.
-
-No license for the original collaborative materials has been granted by this documentation.
+Specific individual responsibilities can be added here as a contributor-verified account of the collaboration.
