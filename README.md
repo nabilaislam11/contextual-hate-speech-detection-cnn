@@ -1,45 +1,76 @@
 # Contextual Hate Speech Detection Using CNNs
 
-**Original group research title:** *Unlocking the Potential of NLP: CNN based Approaches for Contextual Hate Speech Detection*
+**Original paper:** *Unlocking the Potential of NLP: CNN based Approaches for Contextual Hate Speech Detection*
 
-An academic **group research project** exploring contextual hate speech detection through natural language processing (NLP) and convolutional neural network (CNN)-based approaches.
+Academic collaborative research examining convolutional neural networks (CNNs) for classifying English-language tweets as **hate speech**, **offensive language**, or **neither**.
 
-## Project background
+> **Research status:** This repository preserves the original final group paper and documents its **reported** experimental setup and findings. The original training code, dataset copy, trained weights, and a reproducible environment have not been recovered or verified. Reported results have not been independently reproduced.
 
-The original CSE438 group submissions document the progression from *Gender-Based Hate Comment Detection with NLP* (submission 3), through an initial paper draft on contextual hate speech detection (submission 4), to a CNN-focused paper draft (submission 5) and final paper and presentation (submission 6).
+## Research overview
 
-This repository is being assembled to document **the original collaborative academic project**, not to present a newly written implementation as the original submission.
+The study applies natural language processing and a CNN-based sentence classification approach to the **CrowdFlower Hate Speech Identification** dataset of **24,783 English tweets**.
 
-## Group authorship
+| Label | Samples | Share |
+| --- | ---: | ---: |
+| Hate | 1,430 | 5.8% |
+| Offensive | 19,190 | 77.4% |
+| Neither | 4,163 | 16.8% |
+| **Total** | **24,783** | **100%** |
 
-- Nabila Islam Borno
-- Ashfiqun Ahmed Miftah
-- Atikur Rahman
-- Gazi Asif Imtiaz
+The class distribution is highly imbalanced. This is critical to interpreting the model's results.
 
-The source submission records identify all four as group members. Individual implementation and writing responsibilities have **not yet been verified**; see [contributions](docs/contributions.md).
+## Methodology reported in the paper
 
-## Research materials
+- **Text processing:** character cleaning, lowercasing, stemming and tokenization using Python/Keras tooling.
+- **Split:** training **50%**, validation **30%**, test **20%**; the paper does not report cross-validation.
+- **Embeddings:** pretrained **300-dimensional Word2Vec** vectors; the paper describes an input tensor shape of `(None, 100, 300)`.
+- **CNN:** sentence-classification design inspired by **Kim (2014)**, with convolution filter sizes **3, 4 and 5**, **100 filters per size**, max pooling and softmax classification.
+- **Training:** Adam optimizer, batch size **64**, **10 epochs**. The paper discusses a later learning-rate adjustment to **1e-4**.
 
-The original group archive identifies:
-- An initial project presentation (submission 3)
-- A first paper draft (submission 4)
-- A revised CNN-focused draft (submission 5)
-- A final paper and presentation (submission 6)
+These settings are transcribed from the original report, **not** from independently inspected source code. The paper does not provide a complete reproducible implementation specification.
 
-See [research history](docs/research-history.md) for the documented sequence.
+## Reported findings and limitations
 
-**Current verification status:** The source repository's README records and file inventory have been inspected. The final paper and presentation binaries have not yet been reviewed or copied here. The exact dataset, architecture, training procedure, evaluation metrics, and results are therefore not stated in this README. Original runnable code and datasets have not been verified.
+| Reported aggregate measure | Value |
+| --- | ---: |
+| Accuracy | **91%** |
+| Recall | **0.90** |
+| F1-score | **0.90** |
+| Loss | **36%** (as described in the paper) |
 
-## Repository scope
+**Critical limitation:** Despite the reported 91% aggregate accuracy, the paper states that **more than 80% of tweets in the hate class were classified incorrectly**. The class imbalance and bias toward predicting offensive language substantially limit the model's usefulness for detecting the minority hate-speech class. Aggregate metrics must **not** be presented as evidence of strong hate-class detection.
 
-This repository will preserve the authentic research documentation and, if verified and appropriate to share, original project materials. Any later reproduction or extension will be clearly labeled as such. No claim is made that this repository currently provides a runnable CNN implementation.
+The paper contains training/validation loss and accuracy plots and a confusion matrix (pages 3–4). The precise evaluation population for each aggregate metric is not fully specified; values are therefore presented as **paper-reported**, not verified test-set scores.
 
-## Academic integrity and reuse
+Further limitations include a relatively small minority class, possible overfitting, absence of cross-validation and unavailable original runnable code. The paper also discusses ethical considerations such as classification bias and freedom of expression.
 
-This is collaborative coursework. All four group members are acknowledged; the presence of a file or a GitHub commit must not be treated as evidence of an individual's exclusive authorship. Original materials will be reviewed for sharing rights and sensitive information before import.
+## Original paper and documentation
 
-## Documentation
+- [Read the unchanged final submitted paper (PDF)](research/Final%20Paper.pdf)
+- [Research development history](docs/research-history.md)
+- [Authorship and contributions](docs/contributions.md)
+- [Original material inventory](docs/original-materials.md)
 
-- [Research history](docs/research-history.md)
-- [Group contributions and verification status](docs/contributions.md)
+## Paper authorship
+
+The final PDF lists the following **seven authors**, in this order:
+
+1. Nabila Islam Borno
+2. Ashfiqun Ahmed Miftah
+3. Atikur Rahman
+4. Gazi Asif Imtiaz
+5. Md Sabbir Hossain
+6. Mehnaz Ara Fazal
+7. Annajiat Alim Rasel
+
+The archived course submission READMEs identify the first four as **Group 4 members**. This distinction does not establish the individual responsibilities of any author; see [contributions](docs/contributions.md).
+
+## Provenance
+
+The original CSE438 coursework archive documents a progression from an initial gender-based hate comment detection proposal (submission 3), through a broader NLP paper draft (submission 4), to a CNN-focused draft and final submission (submissions 5–6).
+
+This repository was organized later to preserve and explain that academic work. **No original software implementation is claimed to be present.** Any future reproduction or extension will be labeled separately and will not be described as the original submitted code.
+
+## Reuse
+
+No software or research-material license is asserted here. The PDF retains its original authorship and contents. Check permissions and third-party rights before reusing the paper, dataset, figures or any future recovered materials.
