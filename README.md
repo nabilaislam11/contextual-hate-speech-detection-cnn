@@ -96,6 +96,10 @@ The final paper credits:
 
 See [authorship and contributions](docs/contributions.md) for the distinction between paper authors and the course project group.
 
+## Related implementation
+
+A [CNN training and prediction implementation](https://github.com/nabilaislam11/nabila-portfolio/tree/main/projects/05-contextual-hate-speech-cnn) explores the text classification workflow in Python and TensorFlow. The academic paper and its reported findings remain documented in this research repository.
+
 ## Research materials
 
 - [Final research paper](research/Final%20Paper.pdf)
