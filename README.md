@@ -98,7 +98,21 @@ See [authorship and contributions](docs/contributions.md) for the distinction be
 
 ## Related implementation
 
-A [CNN training and prediction implementation](https://github.com/nabilaislam11/nabila-portfolio/tree/main/projects/05-contextual-hate-speech-cnn) explores the text classification workflow in Python and TensorFlow. The academic paper and its reported findings remain documented in this research repository.
+This repository includes a [CNN training and evaluation pipeline](src/train.py) and a [prediction command](src/predict.py) using Python and TensorFlow. The implementation follows a three-class CNN classification workflow with convolutional filter widths 3, 4 and 5, while the research paper provides the experimental methodology and reported findings.
+
+### Run the CNN pipeline
+
+Install Python 3.11 and the [project dependencies](requirements.txt):
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python src/train.py --csv /path/to/tweets.csv --output artifacts
+python src/predict.py --text "Example text for classification" --model artifacts/context_cnn.keras --tokenizer artifacts/tokenizer.json --labels artifacts/labels.json
+```
+
+The training command accepts the public CrowdFlower-style `tweet,class` CSV layout or `text,label` columns, with an optional `context` column. The script saves the model, tokenizer, label mapping, evaluation metrics and training configuration to `artifacts/`. The companion implementation uses a trainable embedding layer; the paper discusses Word2Vec embeddings. Research-paper results and new training-run outputs are maintained separately.
 
 ## Research materials
 
@@ -106,6 +120,7 @@ A [CNN training and prediction implementation](https://github.com/nabilaislam11/
 - [Research development history](docs/research-history.md)
 - [Authorship and contributions](docs/contributions.md)
 - [Research materials](docs/original-materials.md)
+- [CNN training pipeline](src/train.py) and [prediction command](src/predict.py)
 
 ## Future directions
 

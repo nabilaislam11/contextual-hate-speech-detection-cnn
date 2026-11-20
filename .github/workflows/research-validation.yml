@@ -17,3 +17,5 @@ jobs:
           python-version: '3.11'
       - name: Verify PDF and Markdown links
         run: python scripts/validate_research.py
+      - name: Compile CNN source files
+        run: python -m py_compile src/train.py src/predict.py
