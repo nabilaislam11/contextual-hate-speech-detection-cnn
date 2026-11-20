@@ -70,9 +70,11 @@ The final paper reports the following aggregate results:
 | Metric | Reported result |
 | --- | ---: |
 | Accuracy | **91%** |
-| Recall | **0.90** |
-| F1-score | **0.90** |
-| Loss | **36%** |
+| Reported recall | **0.90** |
+| Reported F1-score | **0.90** |
+| Reported loss | **36%** |
+
+The final paper expresses loss as 36% and gives the recall and F1-score without specifying an averaging method.
 
 The research also highlights a significant challenge: **more than 80% of hate-class tweets were classified incorrectly**, despite the strong overall accuracy. This illustrates how class imbalance can obscure weak performance on a minority class and why class-specific evaluation is essential for responsible content moderation.
 
